@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analyzer · BERT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <main class="card">
+        <header class="card-header">
+            <h1>Sentiment Analyzer</h1>
+            <p class="subtitle">Discover the tone of a customer review with AI (BERT model)</p>
+        </header>
+
+        <section class="examples">
+            <span class="examples-label">Try one of these sample reviews:</span>
+            <div class="chips">
+                <button class="chip" type="button"
+                    data-text="This product exceeded my expectations, the quality is amazing and delivery was super fast!">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    Positive review
+                </button>
+                <button class="chip" type="button"
+                    data-text="Terrible experience. The item arrived broken and customer support never replied.">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    Negative review
+                </button>
+                <button class="chip" type="button"
+                    data-text="The package arrived on the estimated date. It works as described.">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    Neutral review
+                </button>
+            </div>
+        </section>
+
+        <label class="field-label" for="textToAnalyze">Text to analyze</label>
+        <textarea id="textToAnalyze" rows="4"
+            placeholder="Type or paste a review here..."></textarea>
+
+        <button id="analyzeBtn" class="btn-primary" type="button">Analyze sentiment</button>
+
+        <div id="result" class="result hidden" aria-live="polite"></div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
